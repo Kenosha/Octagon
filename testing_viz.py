@@ -41,11 +41,120 @@ def board_to_indices(myBoard):
 	p1Arr, p2Arr = myBoard.whiteArr, myBoard.blackArr
 	return arr_to_indices(p1Arr), arr_to_indices(p2Arr)
 
-def show_board(myBoard: Board, dim: int = 600, offset: float = 0.1, 
-               line_color = BGR['minty_green'], 
-               point_color = BGR['smokey_grey'],
-               player_one_color = BGR['intense_red'],
-               player_two_color = BGR['strong_blue']):
+class BoardViz:
+	def __init__(	self, myBoard: Board, dim: int = 600, offset: float = 0.1, 
+					line_color = BGR['minty_green'], 
+					point_color = BGR['smokey_grey'],
+					player_one_color = BGR['intense_red'],
+					player_two_color = BGR['strong_blue']):
+		self.myBoard = myBoard
+		self.dim = dim
+		self.offset = offset
+		self.line_color = line_color
+		self.point_color = point_color
+		self.player_one_color = player_one_color
+		self.player_two_color = player_two_color
+
+		### correcting for the offset at the sides of the frame
+		self.corr_dim = (1 - offset) * dim
+		self.corr_off = offset / 2 * dim
+		self.corr_off_comp = dim - self.corr_off
+
+		self.center_width = 0.4
+		self.outside_width = (1 - self.center_width) / 2
+
+		self.a = self.outside_width * self.corr_dim + self.corr_off
+		self.b = (self.outside_width + self.center_width) * self.corr_dim + self.corr_off
+
+	def get_outer_points(self):
+		p1, p2 = Point2D((self.a, self.corr_off)), Point2D((self.b, self.corr_off))
+		p3, p4 = Point2D((self.corr_off_comp, self.a)), Point2D((self.corr_off_comp, self.b))
+		p5, p6 = Point2D((self.b, self.corr_off_comp)), Point2D((self.a, self.corr_off_comp))
+		p7, p8 = Point2D((self.corr_off, self.b)), Point2D((self.corr_off, self.a))
+		return [p1, p2, p3, p4, p5, p6, p7, p8]
+
+	def get_lines(self):
+		p1, p2, p3, p4, p5, p6, p7, p8 = self.get_outer_points()
+		l14 = Line(p1, p4)
+		l16 = Line(p1, p6)
+		l25 = Line(p2, p5)
+		l27 = Line(p2, p7)
+		l36 = Line(p3, p6)
+		l38 = Line(p3, p8)
+		l47 = Line(p4, p7)
+		l58 = Line(p5, p8)
+		return [l14, l16, l25, l27, l36, l38, l47, l58]
+
+	def get_starting_points(self):
+		l14, l16, l25, l27, l36, l38, l47, l58 = self.get_lines()
+		s1 = l16.weak_intersect(l38)
+		s2 = l14.weak_intersect(l27)
+		s3 = l25.weak_intersect(l38)
+		s4 = l36.weak_intersect(l14)
+		s5 = l47.weak_intersect(l25)
+		s6 = l58.weak_intersect(l36)
+		s7 = l47.weak_intersect(l16)
+		s8 = l58.weak_intersect(l27)
+		return [s1, s2, s3, s4, s5, s6, s7, s8]
+	
+	def get_inner_points(self):
+		l14, l16, l25, l27, l36, l38, l47, l58 = self.get_lines()
+		i1 = l27.weak_intersect(l38)
+		i2 = l14.weak_intersect(l38)
+		i3 = l14.weak_intersect(l25)
+		i4 = l36.weak_intersect(l25)
+		i5 = l36.weak_intersect(l47)
+		i6 = l58.weak_intersect(l47)
+		i7 = l58.weak_intersect(l16)
+		i8 = l27.weak_intersect(l16)
+		return [i1, i2, i3, i4, i5, i6, i7, i8]
+
+	def get_frame(self):
+		myArr = np.zeros((self.dim, self.dim, 3), dtype = np.uint8)
+		myFrm = BGRFrame(myArr)
+
+		lines = self.get_lines()
+		start_points = self.get_starting_points()
+		inner_points = self.get_inner_points()
+		outer_points = self.get_outer_points()
+
+
+		### make empty board
+		emFrm = myFrm.put(lines, color = self.line_color)
+		emFrm = emFrm.put(inner_points, color = self.point_color, thickness = self.point_thickness)
+		emFrm = emFrm.put(outer_points, color = self.point_color, thickness = self.point_thickness)
+
+		### make board with pieces.
+		plFrm = emFrm
+		p1Idxs, p2Idxs = board_to_indices(myBoard)
+
+		s, i, o = p1Idxs
+		p1_start, p1_inner, p1_outer = [start_points[idx] for idx in s], [inner_points[idx] for idx in i], [outer_points[idx] for idx in o]
+		plFrm = plFrm.put(p1_start, color = self.player_one_color, thickness = self.point_thickness)
+		plFrm = plFrm.put(p1_inner, color = self.player_one_color, thickness = self.point_thickness)
+		plFrm = plFrm.put(p1_outer, color = self.player_one_color, thickness = self.point_thickness)
+		
+		s, i, o = p2Idxs
+		p2_start, p2_inner, p2_outer = [start_points[idx] for idx in s], [inner_points[idx] for idx in i], [outer_points[idx] for idx in o]
+		plFrm = plFrm.put(p2_start, color = self.player_two_color, thickness = self.point_thickness)
+		plFrm = plFrm.put(p2_inner, color = self.player_two_color, thickness = self.point_thickness)
+		plFrm = plFrm.put(p2_outer, color = self.player_two_color, thickness = self.point_thickness)
+		
+		### make turn text and/or win text!
+		reprStr = myBoard.__repr__()
+		showStr = reprStr[6:-1] ### exlude 'Board()' from the repr
+		plFrm = plFrm.put(showStr, where = (20, 20))
+
+		return plFrm
+	
+	def show(self):
+		self.get_frame().show()
+
+def get_board_frame(myBoard: Board, dim: int = 600, offset: float = 0.1, 
+               		line_color = BGR['minty_green'], 
+               		point_color = BGR['smokey_grey'],
+               		player_one_color = BGR['intense_red'],
+               		player_two_color = BGR['strong_blue']):
 
 	dim = 600
 	offset = 0.1
@@ -130,7 +239,15 @@ def show_board(myBoard: Board, dim: int = 600, offset: float = 0.1,
 	plFrm = plFrm.put(p2_inner, color = player_two_color, thickness = point_thickness)
 	plFrm = plFrm.put(p2_outer, color = player_two_color, thickness = point_thickness)
 	
-	plFrm.show()
+	### make turn text and/or win text!
+	reprStr = myBoard.__repr__()
+	showStr = reprStr[6:-1] ### exlude 'Board()' from the repr
+	plFrm = plFrm.put(showStr, where = (20, 20))
+
+	return plFrm
+
+def show_board(*args, **kwargs):
+	get_board_frame(**args, **kwargs).show()
 
 
 # myBoard = Board.start_position()
@@ -228,22 +345,19 @@ black_win_filter = (winArr_black.sum(axis = 2) == 4).any(axis = 1)
 white_win_positions = outArr[white_win_filter]
 black_win_positions = outArr[black_win_filter]
 
-for idx in range(24):
-	pos = idx * num 
-	whiteArr, blackArr = white_win_positions[pos, :, 0], white_win_positions[pos, :, 1]
-	myBoard = Board(whiteArr, blackArr, turn = 'b')
-	show_board(myBoard)
+# for idx in range(24):
+# 	pos = idx * num 
+# 	whiteArr, blackArr = white_win_positions[pos, :, 0], white_win_positions[pos, :, 1]
+# 	myBoard = Board(whiteArr, blackArr, turn = 'b')
+# 	show_board(myBoard)
 
 #######
-def check_move(myBoard):
+def check_move(myBoard): ### a simple engine: makes a move if it is winning; if there are no winning moves, makes a random move.
 	succs = myBoard.get_successors()
 	for board in succs:
 		if board.win == myBoard.turn:
 			return board
 	else:
-		
-
-
 		return np.random.choice(succs)
 
 myBoard = Board.start_position()
@@ -253,7 +367,36 @@ while myBoard.win == 0:
 else:
 	show_board(myBoard)
 
-nextBoard.turn
+
+### call back -> register keypress to make a move!
+import cv2 as cv
+clickPt = None
+def select_point(event, x, y, flags, param):
+	# grab references to the global variables
+	global clickPt
+	# if the left mouse button was clicked, record the (x, y) coordinates
+	if event == cv.EVENT_LBUTTONDOWN:
+		clickPt = (x, y)
+		cv.destroyAllWindows()
+
+myBoard = Board.start_position()
+while myBoard.win == 0:
+	brdFrm = get_board_frame(myBoard)
+
+	cv.namedWindow('image')
+	cv.setMouseCallback('image', select_point)
+
+	cv.imshow('image', brdFrm.array)
+	key = cv.waitKey(0) & 0xFF
+
+
+	print(clickPt)
+
+	if key == ord('q'): ## press q to quit
+		cv.destroyAllWindows()
+		break
+
+
 
 # class Player:
 # 	def __init__(myBoard, is_first)
