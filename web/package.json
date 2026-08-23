@@ -1,0 +1,66 @@
+{
+  "name": "@kenosha/octagon",
+  "version": "0.1.0-dev.9",
+  "description": "A browser-native implementation of the Octagon board game.",
+  "type": "module",
+  "sideEffects": [
+    "./octagon-game.js"
+  ],
+  "exports": {
+    ".": {
+      "types": "./octagon-game.d.ts",
+      "import": "./octagon-game.js"
+    },
+    "./element": {
+      "types": "./octagon-game.d.ts",
+      "import": "./octagon-game.js"
+    },
+    "./core": {
+      "types": "./game-engine.d.ts",
+      "import": "./game-engine.mjs"
+    },
+    "./ai": {
+      "types": "./ai-engine.d.ts",
+      "import": "./ai-engine.mjs"
+    },
+    "./perfect": {
+      "types": "./perfect-engine.d.ts",
+      "import": "./perfect-engine.mjs"
+    },
+    "./rulesets": {
+      "types": "./rulesets.d.ts",
+      "import": "./rulesets.mjs"
+    }
+  },
+  "files": [
+    "ai-engine.d.ts",
+    "ai-engine.mjs",
+    "game-engine.d.ts",
+    "game-engine.mjs",
+    "octagon-game.d.ts",
+    "octagon-game.js",
+    "perfect-engine.d.ts",
+    "perfect-engine.mjs",
+    "perfect-tablebase.bin",
+    "README.md",
+    "rulesets.d.ts",
+    "rulesets.mjs"
+  ],
+  "scripts": {
+    "test": "node --test game-engine.test.mjs ai-engine.test.mjs perfect-engine.test.mjs",
+    "pack:check": "pnpm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=24.18.0"
+  },
+  "packageManager": "pnpm@11.4.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kenosha/Octagon.git",
+    "directory": "web"
+  },
+  "license": "UNLICENSED"
+}
