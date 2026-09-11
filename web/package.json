@@ -1,6 +1,6 @@
 {
   "name": "@kenosha/octagon",
-  "version": "0.1.0-dev.9",
+  "version": "0.1.0-dev.10",
   "description": "A browser-native implementation of the Octagon board game.",
   "type": "module",
   "sideEffects": [

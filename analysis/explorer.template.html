@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Octagon · What makes a good game?</title>
+<style>
+  :root{color-scheme:light;--ink:#19312d;--muted:#58706a;--paper:#f5f4ed;--green:#146c50;--line:#d2ddd5}
+  *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+  main{max-width:1250px;margin:auto;padding:42px 24px 70px}h1,h2,p{margin:0 0 16px}h1{font:clamp(32px,5vw,57px)/1.1 Georgia,serif;max-width:800px}h2{font-size:22px}
+  .eyebrow{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--green)}.intro{max-width:790px;color:var(--muted);font-size:18px}
+  .layout{display:grid;grid-template-columns:minmax(300px,1fr) minmax(340px,1.15fr);gap:28px;margin:28px 0}.card{background:#fffdf8;border:1px solid var(--line);border-radius:12px;padding:24px}
+  select,input,button{font:inherit}select{width:100%;padding:10px;border:1px solid var(--line);border-radius:5px;background:white;color:var(--ink)}button{cursor:pointer;padding:8px 12px;border:1px solid var(--line);border-radius:5px;background:white;color:var(--ink)}button:hover,button.active{background:#dff0e6;border-color:#96c8ad}button:disabled{opacity:.4;cursor:default}
+  button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #377db1;outline-offset:3px}.families{display:flex;gap:8px 15px;flex-wrap:wrap;margin:12px 0 24px}.families label{white-space:nowrap;font-size:14px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}.stat{padding:12px;background:#edf3ed;border-radius:5px}.stat b{font-size:25px;display:block;line-height:1.2}.stat span{font-size:12px;color:var(--muted)}.muted{color:var(--muted)}.small{font-size:13px}.tabs{display:flex;gap:8px;margin-bottom:12px}
+  #board{display:block;width:100%;max-height:490px;margin:auto}#description{font-size:14px;min-height:63px;margin-top:14px}.controls{display:flex;align-items:center;gap:10px}.controls input{flex:1;min-width:50px}#position-note{min-height:67px;margin-top:15px;font-size:14px}.opening{display:grid;grid-template-columns:1fr 1fr;gap:8px}.opening div{padding:9px;background:#f1f3ee;font-size:13px}.opening b{display:block;font-size:15px}
+  .win{color:#126844}.draw{color:#586d81}.loss{color:#a54331}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px;white-space:nowrap}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line)}th{font-weight:600;font-size:12px;color:var(--muted)}td:first-child{white-space:normal;min-width:250px}td button{padding:0;border:0;background:transparent;text-align:left}tr.selected{background:#e4f0e6}tbody tr:hover{background:#edf3ed}#search{padding:10px;border:1px solid var(--line);border-radius:5px;width:min(100%,430px);margin-bottom:14px}details{margin:20px 0}summary{cursor:pointer;font-weight:600}.notes{max-width:900px;font-size:14px}.notes p{margin:12px 0}.tag{font-size:11px;color:var(--muted)}
+  @media(max-width:800px){main{padding:25px 16px}.layout{grid-template-columns:1fr}.card{padding:18px}#board{max-height:430px}}@media(prefers-reduced-motion:no-preference){button{transition:background .12s}}
+</style>
+<main>
+  <p class="eyebrow">An exact experiment in game design · September 2026</p>
+  <h1>What makes Octagon elegant?</h1>
+  <p class="intro">A long forced win is one kind of depth. Clear targets, meaningful choices, and room to recover are others. Compare the solved variants, inspect their targets, and replay one optimal line.</p>
+  <div class="layout">
+    <section class="card" aria-label="Choose a game variant">
+      <label for="variant"><b>Choose a variant</b></label>
+      <select id="variant"></select>
+      <p id="description" class="muted"></p>
+      <b class="small">Or keep only these original families</b>
+      <div class="families">
+        <label><input type="checkbox" data-family="K" checked> Squares</label>
+        <label><input type="checkbox" data-family="C" checked> Crowns</label>
+        <label><input type="checkbox" data-family="S" checked> Axes</label>
+        <label><input type="checkbox" data-family="D" checked> Diagonals</label>
+      </div>
+      <div id="stats" class="stats" aria-live="polite"></div>
+      <p class="small muted">One ply = one player's move. Draw means neither player can force a finite win. The percentage counts reachable symmetry classes; it is not a predicted match draw rate.</p>
+      <h2 style="margin-top:24px">The opening choices</h2>
+      <div id="opening" class="opening"></div>
+      <p id="precision" class="small muted" style="margin-top:16px"></p>
+    </section>
+    <section class="card" aria-label="Board explorer">
+      <div class="tabs"><button id="targets">Winning targets</button><button id="line">Optimal line</button></div>
+      <svg id="board" viewBox="0 0 1000 1000" role="img" aria-label="Octagon positions and selected winning target"></svg>
+      <div class="controls"><button id="previous" aria-label="Previous position">←</button><input id="step" type="range" min="0" max="19" value="0" aria-label="Target or move number"><button id="next" aria-label="Next position">→</button></div>
+      <p id="position-note" aria-live="polite"></p>
+      <p class="small muted">S = start, I = inner, O = outer. White is shown in red; Black in blue. This drawing uses the geometric ring ratio that makes every diagonal target straight. The solved positions and moves are unchanged.</p>
+    </section>
+  </div>
+  <section class="card">
+    <h2>All <span id="count"></span> experiments</h2>
+    <label class="small" for="search">Filter variants</label><br><input id="search" type="search" placeholder="Try “crowns”, “squares”, or “movement”">
+    <div class="table-wrap"><table><thead><tr><th>Variant</th><th>Targets</th><th>Opening result</th><th>Forced plies</th><th>Drawn states</th></tr></thead><tbody id="results"></tbody></table></div>
+  </section>
+  <details class="notes"><summary>What the measurements do—and do not—tell us</summary>
+    <p>All 14 proper subsets of the original four families draw from the opening. All four families are therefore necessary for the original forced win. Individual targets can still be redundant, and a drawn game can have sharp tactics.</p>
+    <p>Distances assume that the winner wins as quickly as possible and the loser delays as long as possible. The replay fixes one lexicographically selected optimal line; it is not the complete strategy. A count of unique winning choices describes that line only. It does not measure how hard those moves are for a person to recognize.</p>
+    <p>The solver enumerates the complete legal state universe, reuses a movement graph without stopping at targets, and solves each target set separately. It then recomputes reachability with immediate wins and audits the outcome and distance equations at every reachable nonterminal state. Only the four valid quarter-turn rotations are used.</p>
+    <p>The original result matches the shipped tablebase in all aggregate counts and 2,048 separately sampled positions. Every decisive line is replayed by an independent JavaScript verifier. Infinite play and stalemate count as draws; there is no move-count limit. Fresh-game winning strategies strictly decrease distance and cannot repeat a position.</p>
+  </details>
+</main>
+<script id="data" type="application/json">__EXPERIMENT_DATA__</script>
+<script>
+'use strict';
+const data=JSON.parse(document.getElementById('data').textContent), $=id=>document.getElementById(id);
+const label=p=>p===255?'pass':`${'SIO'[Math.floor(p/8)]}${p%8}`;
+const outcome=r=>r.outcome==='win'?'First player wins':r.outcome==='loss'?'Second player wins':'Draw';
+const baseline=data.find(r=>r.key==='proper/original');
+let current=baseline, view='targets', position=0;
+for(const group of [...new Set(data.map(r=>r.group))]) {
+  const optgroup=document.createElement('optgroup');optgroup.label=group;
+  for(const r of data.filter(r=>r.group===group)) {const o=document.createElement('option');o.value=r.key;o.textContent=r.label;optgroup.append(o);}
+  $('variant').append(optgroup);
+}
+const radial=(r,i)=>[500+r*Math.sin(i*Math.PI/4),500-r*Math.cos(i*Math.PI/4)];
+const outer=Array.from({length:8},(_,i)=>radial(410,i));
+const inner=Array.from({length:8},(_,i)=>radial(410*(Math.SQRT2-1),i));
+function intersection(a,b,c,d){const t=((c[0]-a[0])*(d[1]-c[1])-(c[1]-a[1])*(d[0]-c[0]))/((b[0]-a[0])*(d[1]-c[1])-(b[1]-a[1])*(d[0]-c[0]));return [a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])];}
+const starts=inner.map((p,i)=>intersection(outer[(i+7)%8],p,outer[i],inner[(i+7)%8]));
+const points=[...starts,...inner,...outer];
+const segment=(a,b,color,width=2,extra='')=>`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${color}" stroke-width="${width}" ${extra}/>`;
+function hull(indices){const p=indices.map(i=>points[i]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]),cross=(a,b,c)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);const half=a=>{const h=[];for(const v of a){while(h.length>1&&cross(h.at(-2),h.at(-1),v)<.001)h.pop();h.push(v);}return h;};return [...half(p).slice(0,-1),...half([...p].reverse()).slice(0,-1)];}
+function drawBoard(){
+  const r=current,max=view==='targets'?r.patterns.length-1:r.pv.length;position=Math.max(0,Math.min(position,max));
+  $('step').max=max;$('step').value=position;$('previous').disabled=position===0;$('next').disabled=position===max;
+  $('targets').classList.toggle('active',view==='targets');$('line').classList.toggle('active',view==='line');$('line').disabled=!r.pv.length;
+  let svg='<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#72568c"/></marker></defs>';
+  svg+=`<polygon points="${outer.map(p=>p.join(',')).join(' ')}" fill="#f3f1e6" stroke="#c9d4c9" stroke-width="2"/>`;
+  for(let i=0;i<8;i++)svg+=segment(outer[i],outer[(i+3)%8],'#d4dbcf',2);
+  for(let i=0;i<4;i++)svg+=segment(outer[i],outer[i+4],'#d4dbcf',2);
+  let highlight=[],white=[],black=[],move=null;
+  if(view==='targets'){
+    highlight=r.patterns[position];$('position-note').textContent=`Target ${position+1} of ${r.patterns.length}: ${highlight.map(label).join(', ')}.`;
+  } else if(position===r.pv.length){
+    white=r.finalWhite;black=r.finalBlack;highlight=r.outcome==='win'?white:black;$('position-note').textContent=`Ply ${position}: ${r.outcome==='win'?'White':'Black'} completes a winning formation.`;
+  } else {
+    move=r.pv[position];white=move.white;black=move.black;
+    const total=move.winMoves+move.drawMoves+move.lossMoves;
+    $('position-note').textContent=`Ply ${position+1} of ${r.distance}: ${move.side?'Black':'White'} plays ${label(move.from)} → ${label(move.to)}. ${move.winMoves?`${move.winMoves} of ${total} legal moves preserve a forced win.`:`All ${total} legal moves lose against perfect play.`} ${move.distanceOptimalMoves} achieve the optimal remaining length.`;
+  }
+  if(highlight.length){const h=hull(highlight);svg+=`<polygon points="${h.map(p=>p.join(',')).join(' ')}" fill="#b9dfce66" stroke="#228363" stroke-width="8" stroke-linejoin="round"/>`;}
+  for(let i=0;i<24;i++){
+    const p=points[i],isWhite=white.includes(i),isBlack=black.includes(i),marked=highlight.includes(i),start=i<8;
+    if(start&&view==='targets')continue;
+    const fill=isWhite?'#c34431':isBlack?'#2875af':marked?'#228363':start?'#d5cfc1':'#b1bdb1';
+    svg+=`<circle cx="${p[0]}" cy="${p[1]}" r="${isWhite||isBlack?22:marked?19:10}" fill="${fill}" stroke="white" stroke-width="3"/>`;
+    const dx=p[0]-500,dy=p[1]-500,len=Math.hypot(dx,dy),offset=start?34:i<16?-33:38;
+    svg+=`<text x="${p[0]+offset*dx/len}" y="${p[1]+offset*dy/len+7}" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" fill="#526660">${label(i)}</text>`;
+  }
+  if(move&&move.from!==255)svg+=segment(points[move.from],points[move.to],'#72568c',8,'marker-end="url(#arrow)" opacity=".85"');
+  $('board').innerHTML=svg;$('board').setAttribute('aria-label',$('position-note').textContent);
+}
+function selectVariant(key){
+  current=data.find(r=>r.key===key);$('variant').value=key;position=0;if(!current.pv.length)view='targets';
+  $('description').textContent=current.description;
+  $('stats').innerHTML=`<div class="stat"><b class="${current.outcome}">${current.outcome==='draw'?'Draw':current.outcome==='win'?'First wins':'Second wins'}</b><span>Perfect-play opening</span></div><div class="stat"><b>${current.distance??'—'}</b><span>Plies under optimal resistance</span></div><div class="stat"><b>${current.patternCount}</b><span>Winning targets</span></div><div class="stat"><b>${current.drawPercent.toFixed(1)}%</b><span>Reachable states that draw</span></div>`;
+  $('opening').innerHTML=current.opening.filter(m=>m.from===0||m.from===255).map(m=>`<div>${label(m.from)}${m.from===255?'':' → '+label(m.to)}<b class="${m.outcome}">${m.outcome==='win'?'First wins':m.outcome==='loss'?'Second wins':'Draw'}${m.distance?' · '+m.distance+' plies':''}</b></div>`).join('');
+  $('precision').textContent=current.pv.length?`Along this particular optimal line, the winner has exactly one win-preserving move on ${current.uniqueWinningChoices} of ${current.winnerTurns} turns. Move recognition and human difficulty are not measured.`:'A drawn opening does not make every continuation a draw. Either player can still lose by choosing badly.';
+  document.querySelectorAll('[data-family]').forEach(el=>{const key=el.dataset.family;const family=data.find(r=>r.id==='only-'+key&&r.movement==='proper');el.checked=family.patterns.every(p=>current.patterns.some(q=>p.join(',')===q.join(',')));});
+  drawBoard();renderTable();
+}
+function renderTable(){const query=$('search').value.toLowerCase();$('results').innerHTML=data.filter(r=>(r.label+' '+r.group).toLowerCase().includes(query)).map(r=>`<tr class="${r===current?'selected':''}"><td><button data-key="${r.key}">${r.label}</button><br><span class="tag">${r.group}</span></td><td>${r.patternCount}</td><td class="${r.outcome}">${outcome(r)}</td><td>${r.distance??'—'}</td><td>${r.drawPercent.toFixed(1)}%</td></tr>`).join('');}
+$('variant').addEventListener('change',e=>selectVariant(e.target.value));
+document.querySelectorAll('[data-family]').forEach(el=>el.addEventListener('change',()=>{const letters=[...document.querySelectorAll('[data-family]:checked')].map(e=>e.dataset.family).join('');if(!letters){el.checked=true;return;}selectVariant('proper/'+(letters==='KCSD'?'original':'only-'+letters));}));
+$('targets').addEventListener('click',()=>{view='targets';position=0;drawBoard();});$('line').addEventListener('click',()=>{view='line';position=0;drawBoard();});
+$('step').addEventListener('input',e=>{position=Number(e.target.value);drawBoard();});$('previous').addEventListener('click',()=>{position--;drawBoard();});$('next').addEventListener('click',()=>{position++;drawBoard();});
+$('search').addEventListener('input',renderTable);$('results').addEventListener('click',e=>{const button=e.target.closest('[data-key]');if(button)selectVariant(button.dataset.key);});
+$('count').textContent=data.length;selectVariant(baseline.key);
+</script>
+</html>

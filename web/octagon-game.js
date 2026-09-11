@@ -810,10 +810,14 @@ const PROPER_OUTER_POINTS = Object.freeze([
   [500, 45], [822, 178], [955, 500], [822, 822],
   [500, 955], [178, 822], [45, 500], [178, 178],
 ]);
-const PROPER_INNER_POINTS = Object.freeze([
-  [500, 270], [663, 337], [730, 500], [663, 663],
-  [500, 730], [337, 663], [270, 500], [337, 337],
-]);
+// Intersections of neighboring long diagonals keep each winning line straight:
+// O_i, I_(i+1), I_(i+2), O_(i+3).
+const PROPER_INNER_POINTS = Object.freeze(Array.from({ length: 8 }, (_, index) => segmentIntersection(
+  PROPER_OUTER_POINTS[(index + 6) % 8],
+  PROPER_OUTER_POINTS[(index + 1) % 8],
+  PROPER_OUTER_POINTS[(index + 7) % 8],
+  PROPER_OUTER_POINTS[(index + 2) % 8],
+)));
 // Each numbered start is the crossing of O_(i-1)-I_i and O_i-I_(i-1),
 // exactly as on the photographed family board. It remains a real state
 // position, but deliberately has no dot of its own in the artwork.

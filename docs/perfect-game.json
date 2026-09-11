@@ -1,0 +1,2910 @@
+{
+  "ruleset": "proper",
+  "policy": "Shortest forced win; longest resistance; lexicographic ties.",
+  "tablebaseSha256": "d592a34f52a0ca94f59d8e1ee183598d6e4b28c5f2324c7c8adb474c445b437a",
+  "canonicalStates": 5527111,
+  "plies": 89,
+  "uniqueWinningTurns": 10,
+  "meanWinningFraction": 0.29899670409474327,
+  "openings": [
+    {
+      "move": "S0 → I0",
+      "outcome": "win",
+      "distance": 89
+    },
+    {
+      "move": "S0 → I7",
+      "outcome": "draw",
+      "distance": null
+    },
+    {
+      "move": "S0 → O0",
+      "outcome": "loss",
+      "distance": 90
+    },
+    {
+      "move": "S0 → O7",
+      "outcome": "loss",
+      "distance": 92
+    }
+  ],
+  "adjacency": [
+    [
+      15,
+      8,
+      23,
+      16
+    ],
+    [
+      8,
+      9,
+      16,
+      17
+    ],
+    [
+      9,
+      10,
+      17,
+      18
+    ],
+    [
+      10,
+      11,
+      18,
+      19
+    ],
+    [
+      11,
+      12,
+      19,
+      20
+    ],
+    [
+      12,
+      13,
+      20,
+      21
+    ],
+    [
+      13,
+      14,
+      21,
+      22
+    ],
+    [
+      14,
+      15,
+      22,
+      23
+    ],
+    [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      23,
+      16,
+      17
+    ],
+    [
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    [
+      8,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      17,
+      18,
+      19
+    ],
+    [
+      8,
+      9,
+      10,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      20
+    ],
+    [
+      8,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15,
+      19,
+      20,
+      21
+    ],
+    [
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      15,
+      20,
+      21,
+      22
+    ],
+    [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      15,
+      21,
+      22,
+      23
+    ],
+    [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      22,
+      23,
+      16
+    ],
+    [
+      15,
+      8,
+      9
+    ],
+    [
+      8,
+      9,
+      10
+    ],
+    [
+      9,
+      10,
+      11
+    ],
+    [
+      10,
+      11,
+      12
+    ],
+    [
+      11,
+      12,
+      13
+    ],
+    [
+      12,
+      13,
+      14
+    ],
+    [
+      13,
+      14,
+      15
+    ],
+    [
+      14,
+      15,
+      8
+    ]
+  ],
+  "formations": [
+    {
+      "name": "Karo",
+      "description": "A small or large four-corner square.",
+      "pattern": [
+        8,
+        10,
+        12,
+        14
+      ],
+      "variants": [
+        [
+          8,
+          10,
+          12,
+          14
+        ],
+        [
+          16,
+          18,
+          20,
+          22
+        ],
+        [
+          9,
+          11,
+          13,
+          15
+        ],
+        [
+          17,
+          19,
+          21,
+          23
+        ]
+      ]
+    },
+    {
+      "name": "Crown",
+      "description": "Four corners forming a crown around one point.",
+      "pattern": [
+        15,
+        9,
+        23,
+        17
+      ],
+      "variants": [
+        [
+          15,
+          9,
+          23,
+          17
+        ],
+        [
+          9,
+          11,
+          17,
+          19
+        ],
+        [
+          11,
+          13,
+          19,
+          21
+        ],
+        [
+          13,
+          15,
+          21,
+          23
+        ]
+      ]
+    },
+    {
+      "name": "Straight line",
+      "description": "A complete formation across an axis of the board.",
+      "pattern": [
+        8,
+        12,
+        16,
+        20
+      ],
+      "variants": [
+        [
+          8,
+          12,
+          16,
+          20
+        ],
+        [
+          9,
+          13,
+          17,
+          21
+        ],
+        [
+          10,
+          14,
+          18,
+          22
+        ],
+        [
+          11,
+          15,
+          19,
+          23
+        ]
+      ]
+    },
+    {
+      "name": "Diagonal line",
+      "description": "A complete formation along one slanted board line.",
+      "pattern": [
+        9,
+        10,
+        16,
+        19
+      ],
+      "variants": [
+        [
+          9,
+          10,
+          16,
+          19
+        ],
+        [
+          10,
+          11,
+          17,
+          20
+        ],
+        [
+          11,
+          12,
+          18,
+          21
+        ],
+        [
+          12,
+          13,
+          19,
+          22
+        ],
+        [
+          13,
+          14,
+          20,
+          23
+        ],
+        [
+          14,
+          15,
+          21,
+          16
+        ],
+        [
+          15,
+          8,
+          22,
+          17
+        ],
+        [
+          8,
+          9,
+          23,
+          18
+        ]
+      ]
+    }
+  ],
+  "winningPattern": [
+    9,
+    13,
+    17,
+    21
+  ],
+  "frames": [
+    {
+      "ply": 0,
+      "turn": "red",
+      "red": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "blue": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "winner": null,
+      "remaining": 89,
+      "lastMove": null,
+      "legalMoves": 16,
+      "winningMoves": 4,
+      "redInner": 0,
+      "blueInner": 0
+    },
+    {
+      "ply": 1,
+      "turn": "blue",
+      "red": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "blue": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "winner": null,
+      "remaining": 88,
+      "lastMove": {
+        "from": 0,
+        "to": 8,
+        "side": "red",
+        "notation": "S0 → I0"
+      },
+      "legalMoves": 15,
+      "winningMoves": 0,
+      "redInner": 1,
+      "blueInner": 0
+    },
+    {
+      "ply": 2,
+      "turn": "red",
+      "red": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "blue": [
+        1,
+        5,
+        7,
+        10
+      ],
+      "winner": null,
+      "remaining": 87,
+      "lastMove": {
+        "from": 3,
+        "to": 10,
+        "side": "blue",
+        "notation": "S3 → I2"
+      },
+      "legalMoves": 20,
+      "winningMoves": 1,
+      "redInner": 1,
+      "blueInner": 1
+    },
+    {
+      "ply": 3,
+      "turn": "blue",
+      "red": [
+        4,
+        6,
+        8,
+        9
+      ],
+      "blue": [
+        1,
+        5,
+        7,
+        10
+      ],
+      "winner": null,
+      "remaining": 86,
+      "lastMove": {
+        "from": 2,
+        "to": 9,
+        "side": "red",
+        "notation": "S2 → I1"
+      },
+      "legalMoves": 18,
+      "winningMoves": 0,
+      "redInner": 2,
+      "blueInner": 1
+    },
+    {
+      "ply": 4,
+      "turn": "red",
+      "red": [
+        4,
+        6,
+        8,
+        9
+      ],
+      "blue": [
+        1,
+        5,
+        10,
+        14
+      ],
+      "winner": null,
+      "remaining": 85,
+      "lastMove": {
+        "from": 7,
+        "to": 14,
+        "side": "blue",
+        "notation": "S7 → I6"
+      },
+      "legalMoves": 21,
+      "winningMoves": 1,
+      "redInner": 2,
+      "blueInner": 2
+    },
+    {
+      "ply": 5,
+      "turn": "blue",
+      "red": [
+        4,
+        8,
+        9,
+        13
+      ],
+      "blue": [
+        1,
+        5,
+        10,
+        14
+      ],
+      "winner": null,
+      "remaining": 84,
+      "lastMove": {
+        "from": 6,
+        "to": 13,
+        "side": "red",
+        "notation": "S6 → I5"
+      },
+      "legalMoves": 17,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 6,
+      "turn": "red",
+      "red": [
+        4,
+        8,
+        9,
+        13
+      ],
+      "blue": [
+        1,
+        10,
+        12,
+        14
+      ],
+      "winner": null,
+      "remaining": 83,
+      "lastMove": {
+        "from": 5,
+        "to": 12,
+        "side": "blue",
+        "notation": "S5 → I4"
+      },
+      "legalMoves": 18,
+      "winningMoves": 1,
+      "redInner": 3,
+      "blueInner": 3
+    },
+    {
+      "ply": 7,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        11,
+        13
+      ],
+      "blue": [
+        1,
+        10,
+        12,
+        14
+      ],
+      "winner": null,
+      "remaining": 82,
+      "lastMove": {
+        "from": 4,
+        "to": 11,
+        "side": "red",
+        "notation": "S4 → I3"
+      },
+      "legalMoves": 14,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 8,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        11,
+        13
+      ],
+      "blue": [
+        1,
+        12,
+        14,
+        15
+      ],
+      "winner": null,
+      "remaining": 81,
+      "lastMove": {
+        "from": 10,
+        "to": 15,
+        "side": "blue",
+        "notation": "I2 → I7"
+      },
+      "legalMoves": 16,
+      "winningMoves": 1,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 9,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        10,
+        13
+      ],
+      "blue": [
+        1,
+        12,
+        14,
+        15
+      ],
+      "winner": null,
+      "remaining": 80,
+      "lastMove": {
+        "from": 11,
+        "to": 10,
+        "side": "red",
+        "notation": "I3 → I2"
+      },
+      "legalMoves": 14,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 10,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        10,
+        13
+      ],
+      "blue": [
+        12,
+        14,
+        15,
+        17
+      ],
+      "winner": null,
+      "remaining": 79,
+      "lastMove": {
+        "from": 1,
+        "to": 17,
+        "side": "blue",
+        "notation": "S1 → O1"
+      },
+      "legalMoves": 13,
+      "winningMoves": 1,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 11,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "blue": [
+        12,
+        14,
+        15,
+        17
+      ],
+      "winner": null,
+      "remaining": 78,
+      "lastMove": {
+        "from": 13,
+        "to": 11,
+        "side": "red",
+        "notation": "I5 → I3"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 12,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "blue": [
+        14,
+        15,
+        17,
+        19
+      ],
+      "winner": null,
+      "remaining": 77,
+      "lastMove": {
+        "from": 12,
+        "to": 19,
+        "side": "blue",
+        "notation": "I4 → O3"
+      },
+      "legalMoves": 15,
+      "winningMoves": 2,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 13,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        10,
+        12
+      ],
+      "blue": [
+        14,
+        15,
+        17,
+        19
+      ],
+      "winner": null,
+      "remaining": 76,
+      "lastMove": {
+        "from": 11,
+        "to": 12,
+        "side": "red",
+        "notation": "I3 → I4"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 14,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        10,
+        12
+      ],
+      "blue": [
+        14,
+        17,
+        19,
+        23
+      ],
+      "winner": null,
+      "remaining": 75,
+      "lastMove": {
+        "from": 15,
+        "to": 23,
+        "side": "blue",
+        "notation": "I7 → O7"
+      },
+      "legalMoves": 18,
+      "winningMoves": 1,
+      "redInner": 4,
+      "blueInner": 1
+    },
+    {
+      "ply": 15,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        10,
+        21
+      ],
+      "blue": [
+        14,
+        17,
+        19,
+        23
+      ],
+      "winner": null,
+      "remaining": 74,
+      "lastMove": {
+        "from": 12,
+        "to": 21,
+        "side": "red",
+        "notation": "I4 → O5"
+      },
+      "legalMoves": 8,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 16,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        10,
+        21
+      ],
+      "blue": [
+        11,
+        14,
+        17,
+        23
+      ],
+      "winner": null,
+      "remaining": 73,
+      "lastMove": {
+        "from": 19,
+        "to": 11,
+        "side": "blue",
+        "notation": "O3 → I3"
+      },
+      "legalMoves": 16,
+      "winningMoves": 4,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 17,
+      "turn": "blue",
+      "red": [
+        8,
+        10,
+        15,
+        21
+      ],
+      "blue": [
+        11,
+        14,
+        17,
+        23
+      ],
+      "winner": null,
+      "remaining": 72,
+      "lastMove": {
+        "from": 9,
+        "to": 15,
+        "side": "red",
+        "notation": "I1 → I7"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 18,
+      "turn": "red",
+      "red": [
+        8,
+        10,
+        15,
+        21
+      ],
+      "blue": [
+        9,
+        11,
+        14,
+        23
+      ],
+      "winner": null,
+      "remaining": 71,
+      "lastMove": {
+        "from": 17,
+        "to": 9,
+        "side": "blue",
+        "notation": "O1 → I1"
+      },
+      "legalMoves": 15,
+      "winningMoves": 1,
+      "redInner": 3,
+      "blueInner": 3
+    },
+    {
+      "ply": 19,
+      "turn": "blue",
+      "red": [
+        8,
+        10,
+        13,
+        15
+      ],
+      "blue": [
+        9,
+        11,
+        14,
+        23
+      ],
+      "winner": null,
+      "remaining": 70,
+      "lastMove": {
+        "from": 21,
+        "to": 13,
+        "side": "red",
+        "notation": "O5 → I5"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 20,
+      "turn": "red",
+      "red": [
+        8,
+        10,
+        13,
+        15
+      ],
+      "blue": [
+        11,
+        14,
+        17,
+        23
+      ],
+      "winner": null,
+      "remaining": 69,
+      "lastMove": {
+        "from": 9,
+        "to": 17,
+        "side": "blue",
+        "notation": "I1 → O1"
+      },
+      "legalMoves": 16,
+      "winningMoves": 3,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 21,
+      "turn": "blue",
+      "red": [
+        10,
+        12,
+        13,
+        15
+      ],
+      "blue": [
+        11,
+        14,
+        17,
+        23
+      ],
+      "winner": null,
+      "remaining": 68,
+      "lastMove": {
+        "from": 8,
+        "to": 12,
+        "side": "red",
+        "notation": "I0 → I4"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 22,
+      "turn": "red",
+      "red": [
+        10,
+        12,
+        13,
+        15
+      ],
+      "blue": [
+        14,
+        17,
+        19,
+        23
+      ],
+      "winner": null,
+      "remaining": 67,
+      "lastMove": {
+        "from": 11,
+        "to": 19,
+        "side": "blue",
+        "notation": "I3 → O3"
+      },
+      "legalMoves": 20,
+      "winningMoves": 2,
+      "redInner": 4,
+      "blueInner": 1
+    },
+    {
+      "ply": 23,
+      "turn": "blue",
+      "red": [
+        10,
+        12,
+        15,
+        21
+      ],
+      "blue": [
+        14,
+        17,
+        19,
+        23
+      ],
+      "winner": null,
+      "remaining": 66,
+      "lastMove": {
+        "from": 13,
+        "to": 21,
+        "side": "red",
+        "notation": "I5 → O5"
+      },
+      "legalMoves": 9,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 24,
+      "turn": "red",
+      "red": [
+        10,
+        12,
+        15,
+        21
+      ],
+      "blue": [
+        11,
+        14,
+        17,
+        23
+      ],
+      "winner": null,
+      "remaining": 65,
+      "lastMove": {
+        "from": 19,
+        "to": 11,
+        "side": "blue",
+        "notation": "O3 → I3"
+      },
+      "legalMoves": 16,
+      "winningMoves": 4,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 25,
+      "turn": "blue",
+      "red": [
+        8,
+        12,
+        15,
+        21
+      ],
+      "blue": [
+        11,
+        14,
+        17,
+        23
+      ],
+      "winner": null,
+      "remaining": 64,
+      "lastMove": {
+        "from": 10,
+        "to": 8,
+        "side": "red",
+        "notation": "I2 → I0"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 26,
+      "turn": "red",
+      "red": [
+        8,
+        12,
+        15,
+        21
+      ],
+      "blue": [
+        13,
+        14,
+        17,
+        23
+      ],
+      "winner": null,
+      "remaining": 63,
+      "lastMove": {
+        "from": 11,
+        "to": 13,
+        "side": "blue",
+        "notation": "I3 → I5"
+      },
+      "legalMoves": 14,
+      "winningMoves": 6,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 27,
+      "turn": "blue",
+      "red": [
+        8,
+        11,
+        15,
+        21
+      ],
+      "blue": [
+        13,
+        14,
+        17,
+        23
+      ],
+      "winner": null,
+      "remaining": 62,
+      "lastMove": {
+        "from": 12,
+        "to": 11,
+        "side": "red",
+        "notation": "I4 → I3"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 28,
+      "turn": "red",
+      "red": [
+        8,
+        11,
+        15,
+        21
+      ],
+      "blue": [
+        9,
+        13,
+        14,
+        23
+      ],
+      "winner": null,
+      "remaining": 61,
+      "lastMove": {
+        "from": 17,
+        "to": 9,
+        "side": "blue",
+        "notation": "O1 → I1"
+      },
+      "legalMoves": 14,
+      "winningMoves": 1,
+      "redInner": 3,
+      "blueInner": 3
+    },
+    {
+      "ply": 29,
+      "turn": "blue",
+      "red": [
+        8,
+        11,
+        12,
+        15
+      ],
+      "blue": [
+        9,
+        13,
+        14,
+        23
+      ],
+      "winner": null,
+      "remaining": 60,
+      "lastMove": {
+        "from": 21,
+        "to": 12,
+        "side": "red",
+        "notation": "O5 → I4"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 30,
+      "turn": "red",
+      "red": [
+        8,
+        11,
+        12,
+        15
+      ],
+      "blue": [
+        9,
+        10,
+        13,
+        23
+      ],
+      "winner": null,
+      "remaining": 59,
+      "lastMove": {
+        "from": 14,
+        "to": 10,
+        "side": "blue",
+        "notation": "I6 → I2"
+      },
+      "legalMoves": 14,
+      "winningMoves": 2,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 31,
+      "turn": "blue",
+      "red": [
+        8,
+        12,
+        15,
+        20
+      ],
+      "blue": [
+        9,
+        10,
+        13,
+        23
+      ],
+      "winner": null,
+      "remaining": 58,
+      "lastMove": {
+        "from": 11,
+        "to": 20,
+        "side": "red",
+        "notation": "I3 → O4"
+      },
+      "legalMoves": 15,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 3
+    },
+    {
+      "ply": 32,
+      "turn": "red",
+      "red": [
+        8,
+        12,
+        15,
+        20
+      ],
+      "blue": [
+        10,
+        13,
+        16,
+        23
+      ],
+      "winner": null,
+      "remaining": 57,
+      "lastMove": {
+        "from": 9,
+        "to": 16,
+        "side": "blue",
+        "notation": "I1 → O0"
+      },
+      "legalMoves": 14,
+      "winningMoves": 3,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 33,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        15,
+        20
+      ],
+      "blue": [
+        10,
+        13,
+        16,
+        23
+      ],
+      "winner": null,
+      "remaining": 56,
+      "lastMove": {
+        "from": 12,
+        "to": 9,
+        "side": "red",
+        "notation": "I4 → I1"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 34,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        15,
+        20
+      ],
+      "blue": [
+        10,
+        13,
+        14,
+        16
+      ],
+      "winner": null,
+      "remaining": 55,
+      "lastMove": {
+        "from": 23,
+        "to": 14,
+        "side": "blue",
+        "notation": "O7 → I6"
+      },
+      "legalMoves": 14,
+      "winningMoves": 2,
+      "redInner": 3,
+      "blueInner": 3
+    },
+    {
+      "ply": 35,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        12,
+        15
+      ],
+      "blue": [
+        10,
+        13,
+        14,
+        16
+      ],
+      "winner": null,
+      "remaining": 54,
+      "lastMove": {
+        "from": 20,
+        "to": 12,
+        "side": "red",
+        "notation": "O4 → I4"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 36,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        12,
+        15
+      ],
+      "blue": [
+        10,
+        13,
+        16,
+        22
+      ],
+      "winner": null,
+      "remaining": 53,
+      "lastMove": {
+        "from": 14,
+        "to": 22,
+        "side": "blue",
+        "notation": "I6 → O6"
+      },
+      "legalMoves": 16,
+      "winningMoves": 6,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 37,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        11,
+        12
+      ],
+      "blue": [
+        10,
+        13,
+        16,
+        22
+      ],
+      "winner": null,
+      "remaining": 52,
+      "lastMove": {
+        "from": 15,
+        "to": 11,
+        "side": "red",
+        "notation": "I7 → I3"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 38,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        11,
+        12
+      ],
+      "blue": [
+        13,
+        16,
+        18,
+        22
+      ],
+      "winner": null,
+      "remaining": 51,
+      "lastMove": {
+        "from": 10,
+        "to": 18,
+        "side": "blue",
+        "notation": "I2 → O2"
+      },
+      "legalMoves": 20,
+      "winningMoves": 2,
+      "redInner": 4,
+      "blueInner": 1
+    },
+    {
+      "ply": 39,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        11,
+        20
+      ],
+      "blue": [
+        13,
+        16,
+        18,
+        22
+      ],
+      "winner": null,
+      "remaining": 50,
+      "lastMove": {
+        "from": 12,
+        "to": 20,
+        "side": "red",
+        "notation": "I4 → O4"
+      },
+      "legalMoves": 9,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 40,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        11,
+        20
+      ],
+      "blue": [
+        10,
+        13,
+        16,
+        22
+      ],
+      "winner": null,
+      "remaining": 49,
+      "lastMove": {
+        "from": 18,
+        "to": 10,
+        "side": "blue",
+        "notation": "O2 → I2"
+      },
+      "legalMoves": 16,
+      "winningMoves": 2,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 41,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        14,
+        20
+      ],
+      "blue": [
+        10,
+        13,
+        16,
+        22
+      ],
+      "winner": null,
+      "remaining": 48,
+      "lastMove": {
+        "from": 11,
+        "to": 14,
+        "side": "red",
+        "notation": "I3 → I6"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 42,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        14,
+        20
+      ],
+      "blue": [
+        10,
+        13,
+        15,
+        16
+      ],
+      "winner": null,
+      "remaining": 47,
+      "lastMove": {
+        "from": 22,
+        "to": 15,
+        "side": "blue",
+        "notation": "O6 → I7"
+      },
+      "legalMoves": 15,
+      "winningMoves": 2,
+      "redInner": 3,
+      "blueInner": 3
+    },
+    {
+      "ply": 43,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        11,
+        14
+      ],
+      "blue": [
+        10,
+        13,
+        15,
+        16
+      ],
+      "winner": null,
+      "remaining": 46,
+      "lastMove": {
+        "from": 20,
+        "to": 11,
+        "side": "red",
+        "notation": "O4 → I3"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 44,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        11,
+        14
+      ],
+      "blue": [
+        13,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 45,
+      "lastMove": {
+        "from": 10,
+        "to": 18,
+        "side": "blue",
+        "notation": "I2 → O2"
+      },
+      "legalMoves": 16,
+      "winningMoves": 7,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 45,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        10,
+        14
+      ],
+      "blue": [
+        13,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 44,
+      "lastMove": {
+        "from": 11,
+        "to": 10,
+        "side": "red",
+        "notation": "I3 → I2"
+      },
+      "legalMoves": 10,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 46,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        10,
+        14
+      ],
+      "blue": [
+        12,
+        13,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 43,
+      "lastMove": {
+        "from": 15,
+        "to": 12,
+        "side": "blue",
+        "notation": "I7 → I4"
+      },
+      "legalMoves": 16,
+      "winningMoves": 2,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 47,
+      "turn": "blue",
+      "red": [
+        8,
+        10,
+        11,
+        14
+      ],
+      "blue": [
+        12,
+        13,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 42,
+      "lastMove": {
+        "from": 9,
+        "to": 11,
+        "side": "red",
+        "notation": "I1 → I3"
+      },
+      "legalMoves": 13,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 48,
+      "turn": "red",
+      "red": [
+        8,
+        10,
+        11,
+        14
+      ],
+      "blue": [
+        12,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 41,
+      "lastMove": {
+        "from": 13,
+        "to": 15,
+        "side": "blue",
+        "notation": "I5 → I7"
+      },
+      "legalMoves": 17,
+      "winningMoves": 7,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 49,
+      "turn": "blue",
+      "red": [
+        8,
+        10,
+        11,
+        13
+      ],
+      "blue": [
+        12,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 40,
+      "lastMove": {
+        "from": 14,
+        "to": 13,
+        "side": "red",
+        "notation": "I6 → I5"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 50,
+      "turn": "red",
+      "red": [
+        8,
+        10,
+        11,
+        13
+      ],
+      "blue": [
+        15,
+        16,
+        18,
+        20
+      ],
+      "winner": null,
+      "remaining": 39,
+      "lastMove": {
+        "from": 12,
+        "to": 20,
+        "side": "blue",
+        "notation": "I4 → O4"
+      },
+      "legalMoves": 19,
+      "winningMoves": 1,
+      "redInner": 4,
+      "blueInner": 1
+    },
+    {
+      "ply": 51,
+      "turn": "blue",
+      "red": [
+        8,
+        10,
+        11,
+        22
+      ],
+      "blue": [
+        15,
+        16,
+        18,
+        20
+      ],
+      "winner": null,
+      "remaining": 38,
+      "lastMove": {
+        "from": 13,
+        "to": 22,
+        "side": "red",
+        "notation": "I5 → O6"
+      },
+      "legalMoves": 9,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 52,
+      "turn": "red",
+      "red": [
+        8,
+        10,
+        11,
+        22
+      ],
+      "blue": [
+        12,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 37,
+      "lastMove": {
+        "from": 20,
+        "to": 12,
+        "side": "blue",
+        "notation": "O4 → I4"
+      },
+      "legalMoves": 17,
+      "winningMoves": 5,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 53,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        10,
+        22
+      ],
+      "blue": [
+        12,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 36,
+      "lastMove": {
+        "from": 11,
+        "to": 9,
+        "side": "red",
+        "notation": "I3 → I1"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 54,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        10,
+        22
+      ],
+      "blue": [
+        11,
+        12,
+        15,
+        16
+      ],
+      "winner": null,
+      "remaining": 35,
+      "lastMove": {
+        "from": 18,
+        "to": 11,
+        "side": "blue",
+        "notation": "O2 → I3"
+      },
+      "legalMoves": 15,
+      "winningMoves": 4,
+      "redInner": 3,
+      "blueInner": 3
+    },
+    {
+      "ply": 55,
+      "turn": "blue",
+      "red": [
+        9,
+        10,
+        14,
+        22
+      ],
+      "blue": [
+        11,
+        12,
+        15,
+        16
+      ],
+      "winner": null,
+      "remaining": 34,
+      "lastMove": {
+        "from": 8,
+        "to": 14,
+        "side": "red",
+        "notation": "I0 → I6"
+      },
+      "legalMoves": 14,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 3
+    },
+    {
+      "ply": 56,
+      "turn": "red",
+      "red": [
+        9,
+        10,
+        14,
+        22
+      ],
+      "blue": [
+        12,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 33,
+      "lastMove": {
+        "from": 11,
+        "to": 18,
+        "side": "blue",
+        "notation": "I3 → O2"
+      },
+      "legalMoves": 15,
+      "winningMoves": 4,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 57,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        14,
+        22
+      ],
+      "blue": [
+        12,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 32,
+      "lastMove": {
+        "from": 10,
+        "to": 8,
+        "side": "red",
+        "notation": "I2 → I0"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 58,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        14,
+        22
+      ],
+      "blue": [
+        13,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 31,
+      "lastMove": {
+        "from": 12,
+        "to": 13,
+        "side": "blue",
+        "notation": "I4 → I5"
+      },
+      "legalMoves": 14,
+      "winningMoves": 3,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 59,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        10,
+        22
+      ],
+      "blue": [
+        13,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 30,
+      "lastMove": {
+        "from": 14,
+        "to": 10,
+        "side": "red",
+        "notation": "I6 → I2"
+      },
+      "legalMoves": 10,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 60,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        10,
+        22
+      ],
+      "blue": [
+        12,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 29,
+      "lastMove": {
+        "from": 13,
+        "to": 12,
+        "side": "blue",
+        "notation": "I5 → I4"
+      },
+      "legalMoves": 16,
+      "winningMoves": 6,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 61,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        13,
+        22
+      ],
+      "blue": [
+        12,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 28,
+      "lastMove": {
+        "from": 10,
+        "to": 13,
+        "side": "red",
+        "notation": "I2 → I5"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 62,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        13,
+        22
+      ],
+      "blue": [
+        11,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 27,
+      "lastMove": {
+        "from": 12,
+        "to": 11,
+        "side": "blue",
+        "notation": "I4 → I3"
+      },
+      "legalMoves": 15,
+      "winningMoves": 8,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 63,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        12,
+        22
+      ],
+      "blue": [
+        11,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 26,
+      "lastMove": {
+        "from": 13,
+        "to": 12,
+        "side": "red",
+        "notation": "I5 → I4"
+      },
+      "legalMoves": 10,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 64,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        12,
+        22
+      ],
+      "blue": [
+        14,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 25,
+      "lastMove": {
+        "from": 11,
+        "to": 14,
+        "side": "blue",
+        "notation": "I3 → I6"
+      },
+      "legalMoves": 16,
+      "winningMoves": 5,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 65,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        12,
+        13
+      ],
+      "blue": [
+        14,
+        15,
+        16,
+        18
+      ],
+      "winner": null,
+      "remaining": 24,
+      "lastMove": {
+        "from": 22,
+        "to": 13,
+        "side": "red",
+        "notation": "O6 → I5"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 66,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        12,
+        13
+      ],
+      "blue": [
+        10,
+        14,
+        15,
+        16
+      ],
+      "winner": null,
+      "remaining": 23,
+      "lastMove": {
+        "from": 18,
+        "to": 10,
+        "side": "blue",
+        "notation": "O2 → I2"
+      },
+      "legalMoves": 14,
+      "winningMoves": 4,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 67,
+      "turn": "blue",
+      "red": [
+        9,
+        11,
+        12,
+        13
+      ],
+      "blue": [
+        10,
+        14,
+        15,
+        16
+      ],
+      "winner": null,
+      "remaining": 22,
+      "lastMove": {
+        "from": 8,
+        "to": 11,
+        "side": "red",
+        "notation": "I0 → I3"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 68,
+      "turn": "red",
+      "red": [
+        9,
+        11,
+        12,
+        13
+      ],
+      "blue": [
+        10,
+        15,
+        16,
+        21
+      ],
+      "winner": null,
+      "remaining": 21,
+      "lastMove": {
+        "from": 14,
+        "to": 21,
+        "side": "blue",
+        "notation": "I6 → O5"
+      },
+      "legalMoves": 17,
+      "winningMoves": 4,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 69,
+      "turn": "blue",
+      "red": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "blue": [
+        10,
+        15,
+        16,
+        21
+      ],
+      "winner": null,
+      "remaining": 20,
+      "lastMove": {
+        "from": 9,
+        "to": 14,
+        "side": "red",
+        "notation": "I1 → I6"
+      },
+      "legalMoves": 11,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 70,
+      "turn": "red",
+      "red": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "blue": [
+        8,
+        10,
+        15,
+        21
+      ],
+      "winner": null,
+      "remaining": 19,
+      "lastMove": {
+        "from": 16,
+        "to": 8,
+        "side": "blue",
+        "notation": "O0 → I0"
+      },
+      "legalMoves": 13,
+      "winningMoves": 1,
+      "redInner": 4,
+      "blueInner": 3
+    },
+    {
+      "ply": 71,
+      "turn": "blue",
+      "red": [
+        12,
+        13,
+        14,
+        19
+      ],
+      "blue": [
+        8,
+        10,
+        15,
+        21
+      ],
+      "winner": null,
+      "remaining": 18,
+      "lastMove": {
+        "from": 11,
+        "to": 19,
+        "side": "red",
+        "notation": "I3 → O3"
+      },
+      "legalMoves": 14,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 3
+    },
+    {
+      "ply": 72,
+      "turn": "red",
+      "red": [
+        12,
+        13,
+        14,
+        19
+      ],
+      "blue": [
+        8,
+        10,
+        21,
+        22
+      ],
+      "winner": null,
+      "remaining": 17,
+      "lastMove": {
+        "from": 15,
+        "to": 22,
+        "side": "blue",
+        "notation": "I7 → O6"
+      },
+      "legalMoves": 13,
+      "winningMoves": 8,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 73,
+      "turn": "blue",
+      "red": [
+        13,
+        14,
+        15,
+        19
+      ],
+      "blue": [
+        8,
+        10,
+        21,
+        22
+      ],
+      "winner": null,
+      "remaining": 16,
+      "lastMove": {
+        "from": 12,
+        "to": 15,
+        "side": "red",
+        "notation": "I4 → I7"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 74,
+      "turn": "red",
+      "red": [
+        13,
+        14,
+        15,
+        19
+      ],
+      "blue": [
+        10,
+        11,
+        21,
+        22
+      ],
+      "winner": null,
+      "remaining": 15,
+      "lastMove": {
+        "from": 8,
+        "to": 11,
+        "side": "blue",
+        "notation": "I0 → I3"
+      },
+      "legalMoves": 14,
+      "winningMoves": 3,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 75,
+      "turn": "blue",
+      "red": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "blue": [
+        10,
+        11,
+        21,
+        22
+      ],
+      "winner": null,
+      "remaining": 14,
+      "lastMove": {
+        "from": 19,
+        "to": 12,
+        "side": "red",
+        "notation": "O3 → I4"
+      },
+      "legalMoves": 10,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 76,
+      "turn": "red",
+      "red": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "blue": [
+        8,
+        11,
+        21,
+        22
+      ],
+      "winner": null,
+      "remaining": 13,
+      "lastMove": {
+        "from": 10,
+        "to": 8,
+        "side": "blue",
+        "notation": "I2 → I0"
+      },
+      "legalMoves": 14,
+      "winningMoves": 7,
+      "redInner": 4,
+      "blueInner": 2
+    },
+    {
+      "ply": 77,
+      "turn": "blue",
+      "red": [
+        13,
+        14,
+        15,
+        20
+      ],
+      "blue": [
+        8,
+        11,
+        21,
+        22
+      ],
+      "winner": null,
+      "remaining": 12,
+      "lastMove": {
+        "from": 12,
+        "to": 20,
+        "side": "red",
+        "notation": "I4 → O4"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 2
+    },
+    {
+      "ply": 78,
+      "turn": "red",
+      "red": [
+        13,
+        14,
+        15,
+        20
+      ],
+      "blue": [
+        11,
+        21,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 11,
+      "lastMove": {
+        "from": 8,
+        "to": 23,
+        "side": "blue",
+        "notation": "I0 → O7"
+      },
+      "legalMoves": 14,
+      "winningMoves": 8,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 79,
+      "turn": "blue",
+      "red": [
+        12,
+        14,
+        15,
+        20
+      ],
+      "blue": [
+        11,
+        21,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 10,
+      "lastMove": {
+        "from": 13,
+        "to": 12,
+        "side": "red",
+        "notation": "I5 → I4"
+      },
+      "legalMoves": 9,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 80,
+      "turn": "red",
+      "red": [
+        12,
+        14,
+        15,
+        20
+      ],
+      "blue": [
+        9,
+        21,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 9,
+      "lastMove": {
+        "from": 11,
+        "to": 9,
+        "side": "blue",
+        "notation": "I3 → I1"
+      },
+      "legalMoves": 16,
+      "winningMoves": 8,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 81,
+      "turn": "blue",
+      "red": [
+        8,
+        12,
+        15,
+        20
+      ],
+      "blue": [
+        9,
+        21,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 8,
+      "lastMove": {
+        "from": 14,
+        "to": 8,
+        "side": "red",
+        "notation": "I6 → I0"
+      },
+      "legalMoves": 12,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 82,
+      "turn": "red",
+      "red": [
+        8,
+        12,
+        15,
+        20
+      ],
+      "blue": [
+        16,
+        21,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 7,
+      "lastMove": {
+        "from": 9,
+        "to": 16,
+        "side": "blue",
+        "notation": "I1 → O0"
+      },
+      "legalMoves": 19,
+      "winningMoves": 19,
+      "redInner": 3,
+      "blueInner": 0
+    },
+    {
+      "ply": 83,
+      "turn": "blue",
+      "red": [
+        8,
+        12,
+        13,
+        15
+      ],
+      "blue": [
+        16,
+        21,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 6,
+      "lastMove": {
+        "from": 20,
+        "to": 13,
+        "side": "red",
+        "notation": "O4 → I5"
+      },
+      "legalMoves": 4,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 0
+    },
+    {
+      "ply": 84,
+      "turn": "red",
+      "red": [
+        8,
+        12,
+        13,
+        15
+      ],
+      "blue": [
+        14,
+        16,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 5,
+      "lastMove": {
+        "from": 21,
+        "to": 14,
+        "side": "blue",
+        "notation": "O5 → I6"
+      },
+      "legalMoves": 18,
+      "winningMoves": 18,
+      "redInner": 4,
+      "blueInner": 1
+    },
+    {
+      "ply": 85,
+      "turn": "blue",
+      "red": [
+        8,
+        9,
+        12,
+        13
+      ],
+      "blue": [
+        14,
+        16,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 4,
+      "lastMove": {
+        "from": 15,
+        "to": 9,
+        "side": "red",
+        "notation": "I7 → I1"
+      },
+      "legalMoves": 7,
+      "winningMoves": 0,
+      "redInner": 4,
+      "blueInner": 1
+    },
+    {
+      "ply": 86,
+      "turn": "red",
+      "red": [
+        8,
+        9,
+        12,
+        13
+      ],
+      "blue": [
+        10,
+        16,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 3,
+      "lastMove": {
+        "from": 14,
+        "to": 10,
+        "side": "blue",
+        "notation": "I6 → I2"
+      },
+      "legalMoves": 20,
+      "winningMoves": 18,
+      "redInner": 4,
+      "blueInner": 1
+    },
+    {
+      "ply": 87,
+      "turn": "blue",
+      "red": [
+        9,
+        12,
+        13,
+        17
+      ],
+      "blue": [
+        10,
+        16,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 2,
+      "lastMove": {
+        "from": 8,
+        "to": 17,
+        "side": "red",
+        "notation": "I0 → O1"
+      },
+      "legalMoves": 13,
+      "winningMoves": 0,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 88,
+      "turn": "red",
+      "red": [
+        9,
+        12,
+        13,
+        17
+      ],
+      "blue": [
+        8,
+        16,
+        22,
+        23
+      ],
+      "winner": null,
+      "remaining": 1,
+      "lastMove": {
+        "from": 10,
+        "to": 8,
+        "side": "blue",
+        "notation": "I2 → I0"
+      },
+      "legalMoves": 19,
+      "winningMoves": 18,
+      "redInner": 3,
+      "blueInner": 1
+    },
+    {
+      "ply": 89,
+      "turn": "blue",
+      "red": [
+        9,
+        13,
+        17,
+        21
+      ],
+      "blue": [
+        8,
+        16,
+        22,
+        23
+      ],
+      "winner": "red",
+      "remaining": 0,
+      "lastMove": {
+        "from": 12,
+        "to": 21,
+        "side": "red",
+        "notation": "I4 → O5"
+      },
+      "legalMoves": 0,
+      "winningMoves": 0,
+      "redInner": 2,
+      "blueInner": 1
+    }
+  ]
+}
