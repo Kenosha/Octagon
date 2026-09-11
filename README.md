@@ -1,10 +1,8 @@
 # Octagon
 
-A family board game, a small Python project, and a surprisingly long answer to a simple question: **can either player force a win?**
-
 For a time, my great-uncle held the records for the most bicycles balanced on his head (five) and the longest distance walked with a bicycle balanced on his head (600 metres). He worked as a magician, travelled with a circus, painted houses, worked in a bottling factory, and invented board games in the 1980s. Once in a while, we go to his place and try a few. The one I liked most was the simplest: Octagon.
 
-Each player has four stones. Move them into a winning formation before the other player does. I wondered whether the first player could force a win, whether the second player could, or whether perfect defence would always hold. I wrote down the rules in Python, built a little interface, and made a fairly basic opponent. Years later, with agentic AI, I returned to the question and solved the game computationally.
+Each player has four stones. Move them into a winning formation before the other player does. I wondered **whether the first player could force a win**, whether the second player could, or whether perfect defence would always hold. I wrote down the rules in Python, built a little interface, and made a fairly basic opponent. Years later, with agentic AI, I returned to the question and solved the game computationally.
 
 **On the family board, the first player can force a win in 89 plies: 45 moves for Red, 44 for Blue.** A ply is one move by one player. Red wins as quickly as possible; Blue makes that take as long as possible. What still astonishes me is that the opening advantage is enough to force a win, yet takes so long to convert. I had expected a draw.
 
